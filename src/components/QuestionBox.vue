@@ -51,8 +51,10 @@ export default {
         const j = Math.floor(Math.random() * (i + 1));
         [a[i], a[j]] = [a[j], a[i]];
       }
-      this.shuffledAnswers = a;
       this.correctIndex = a.indexOf(this.currentQuestion.correct_answer);
+      this.shuffledAnswers = a.map((answer) =>
+        answer.replace(/&quot;/g, '"').replace(/(&#039;|&rsquo;)/g, "'")
+      );
     },
     submitAnswer() {
       let isCorrect = false;
@@ -81,7 +83,7 @@ export default {
   },
   filters: {
     parse: function(value) {
-      return value.replace(/&quot;/g, '"').replace(/&#039;/g, "'");
+      return value.replace(/&quot;/g, '"').replace(/(&#039;|&rsquo;)/g, "'");
     },
   },
 };
