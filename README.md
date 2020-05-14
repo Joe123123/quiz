@@ -4,7 +4,7 @@ Quiz! is a practice project for Vue that allows you to take a small quiz and see
 
 ## Screenshots
 
-!["Page"]()
+!["Page"](https://github.com/Joe123123/quiz/blob/master/src/assets/page.png)
 
 ## Setup
 
