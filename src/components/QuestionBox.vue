@@ -12,12 +12,7 @@
           v-for="(answer, index) in shuffledAnswers"
           :key="index"
           @click.prevent="selectAnswer(index)"
-          :class="{
-            selected: selectedIndex === index && !answered,
-            correct: correctIndex === index && answered,
-            incorrect:
-              selectedIndex === index && correctIndex !== index && answered,
-          }"
+          :class="answerClass(index)"
           :disabled="answered"
         >
           {{ answer }}
@@ -76,6 +71,16 @@ export default {
       }
       this.answered = true;
       this.increment(isCorrect);
+    },
+    answerClass(index) {
+      return {
+        selected: this.selectedIndex === index && !this.answered,
+        correct: this.correctIndex === index && this.answered,
+        incorrect:
+          this.selectedIndex === index &&
+          this.correctIndex !== index &&
+          this.answered,
+      };
     },
   },
   watch: {
