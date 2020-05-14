@@ -1,24 +1,17 @@
-# quiz
+# Quiz!
 
-## Project setup
-```
-npm install
-```
+Quiz! is a practice project for Vue that allows you to take a small quiz and see your score.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Screenshots
 
-### Compiles and minifies for production
-```
-npm run build
-```
+!["Page"]()
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Setup
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Run `npm install` to install the dependencies.
+2. Run `npm start` and go to `localhost:3000` in your browser.
+
+## Stack
+
+- Vue
+- BootstrapVue
