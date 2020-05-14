@@ -5,11 +5,15 @@
       <b-row>
         <b-col sm="6" offset="3">
           <QuestionBox
-            v-if="questions.length"
+            v-if="questions.length && !finished"
             :currentQuestion="questions[index]"
             :next="next"
             :increment="increment"
           />
+          <h2 v-if="finished">Finished!</h2>
+          <h2 v-if="finished">
+            Your score is: {{ numCorrect }} / {{ numTotal }}
+          </h2>
         </b-col>
       </b-row>
     </b-container>
@@ -32,11 +36,15 @@ export default {
       index: 0,
       numCorrect: 0,
       numTotal: 0,
+      finished: false,
     };
   },
   methods: {
     next() {
       this.index++;
+      if (this.index > 9) {
+        this.finished = true;
+      }
     },
     increment(isCorrect) {
       if (isCorrect) {
